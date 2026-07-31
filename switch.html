@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>しあわせスイッチ</title>
+
+  <style>
+    body{
+      font-family:"Hiragino Kaku Gothic ProN", sans-serif;
+      text-align:center;
+      background:#fff0f5;
+      padding:20px 14px 40px;
+      color:#5b3a1e;
+      margin:0;
+      min-height:100vh;
+      box-sizing:border-box;
+    }
+
+    h1{
+      font-size:28px;
+      color:#ff6fa8;
+      margin:8px 0 10px;
+      line-height:1.4;
+    }
+
+    .main-card{
+      width:92%;
+      max-width:620px;
+      margin:0 auto;
+      background:rgba(255,255,255,0.72);
+      border-radius:28px;
+      padding:22px 16px 28px;
+      box-sizing:border-box;
+      box-shadow:0 6px 18px rgba(0,0,0,0.07);
+    }
+
+    .switch-image{
+      width:80%;
+      max-width:320px;
+      border-radius:20px;
+      margin:12px 0 16px;
+      box-shadow:0 6px 16px rgba(0,0,0,0.08);
+    }
+
+    .switch-intro{
+      background:rgba(255,255,255,0.9);
+      padding:16px;
+      border-radius:18px;
+      font-size:15px;
+      line-height:1.9;
+      max-width:520px;
+      margin:0 auto 18px;
+      box-sizing:border-box;
+      box-shadow:0 6px 16px rgba(0,0,0,0.05);
+      color:#6b4b2a;
+    }
+
+    .switch-note{
+      font-size:15px;
+      color:#8a7f76;
+      margin:0 0 16px;
+      line-height:1.8;
+      letter-spacing:0.3px;
+    }
+
+    button{
+      border:none;
+      cursor:pointer;
+      font-weight:bold;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      transition:
+        transform 0.15s ease,
+        opacity 0.15s ease;
+    }
+
+    button:hover{
+      transform:translateY(-1px);
+    }
+
+    button:active{
+      transform:scale(0.97);
+    }
+
+    .switch-btn{
+      width:88%;
+      max-width:360px;
+      display:block;
+      margin:0 auto 18px;
+      padding:17px 18px;
+      border-radius:30px;
+      font-size:18px;
+      color:white;
+      background:linear-gradient(
+        135deg,
+        #ff8fbd,
+        #c6a7ff
+      );
+    }
+
+    .switch-btn.pop{
+      animation:pop 0.35s ease;
+    }
+
+    .message-box{
+  width:92%;
+  max-width:520px;
+  margin:0 auto 18px;
+  padding:22px 18px 26px;
+  box-sizing:border-box;
+
+  background:linear-gradient(
+    180deg,
+    #ffe2ef,
+    #ffd2e6
+  );
+
+  border:3px solid #f28fbd;
+  outline:4px solid #ffd9ea;
+  outline-offset:4px;
+
+  border-radius:26px;
+
+  box-shadow:
+    0 10px 24px rgba(236,143,192,0.22),
+    inset 0 0 0 2px rgba(255,255,255,0.75);
+
+  min-height:150px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+    }
+
+  .message-title{
+  display:inline-block;
+  margin:0 auto 14px;
+  padding:8px 18px;
+  border-radius:999px;
+
+  background:linear-gradient(
+    135deg,
+    #f58fbd,
+    #d7a5ff
+  );
+
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+   }
+
+    .message-text.show{
+      animation:fadeMessage 0.7s ease forwards;
+    }
+
+    .message-placeholder{
+      font-size:16px;
+      line-height:1.8;
+      color:#a58b98;
+    }
+
+    .switch-on{
+      font-size:18px;
+      font-weight:bold;
+      color:#ff6fa8;
+      margin:4px 0 20px;
+      min-height:30px;
+    }
+
+    .switch-on.show{
+      animation:fadeMessage 0.7s ease forwards;
+    }
+
+    .back-btn{
+      background:linear-gradient(
+        90deg,
+        #eec6e6,
+        #b7a7f6
+      );
+      color:white;
+      padding:14px 28px;
+      border-radius:24px;
+      font-size:18px;
+      margin-top:4px;
+    }
+
+    @keyframes pop{
+      0%{
+        transform:scale(1);
+      }
+
+      45%{
+        transform:scale(1.08);
+      }
+
+      100%{
+        transform:scale(1);
+      }
+    }
+
+    @keyframes fadeMessage{
+      from{
+        opacity:0;
+        transform:translateY(8px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media (max-width:480px){
+      body{
+        padding:16px 10px 32px;
+      }
+
+      .main-card{
+        width:96%;
+        padding:18px 12px 24px;
+      }
+
+      h1{
+        font-size:25px;
+      }
+
+      .switch-intro,
+      .switch-note{
+        font-size:14px;
+      }
+
+      .message-text{
+        font-size:16px;
+      }
+
+      .switch-btn,
+      .back-btn{
+        font-size:16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="main-card">
+
+    <h1>🌈 しあわせスイッチ</h1>
+
+    <img
+      src="https://raw.githubusercontent.com/Chappy-Sally/chappy-sally-images/main/covers/switch.png"
+      alt="しあわせスイッチ"
+      class="switch-image"
+    >
+
+    <div class="switch-intro">
+      今この瞬間にある、  
+      小さな「よかった」や「しあわせ」に  
+      そっと気づくためのスイッチです😊🌿
+    </div>
+
+    <div class="switch-note">
+      下のボタンをタップしてね🤭<br>
+      今日のあなたに届くメッセージが出るよ🌈
+    </div>
+
+    <button
+      id="switchButton"
+      class="switch-btn"
+      onclick="showMessage()"
+    >
+      🌈 しあわせスイッチを押す
+    </button>
+    
+<div class="message-box">
+
+  <div
+    id="messagePlaceholder"
+    class="message-placeholder"
+  >
+    どんなメッセージが出るかな🤭💕
+  </div>
+
+  <div
+    id="messageText"
+    class="message-text"
+  ></div>
+
+</div>
+
+    <div
+      id="switchOn"
+      class="switch-on"
+    ></div>
+
+    <button
+      class="back-btn"
+      onclick="location.href='https://chappy-sally.github.io/chappy-sally-anshin-navi/'"
+    >
+      🏠 メニューにもどる
+    </button>
+
+  </div>
+
+
+  <script>
+    const messages = [
+      "今日も、ここまで来たね😊\nそれだけで十分だよ🌿",
+
+      "今この瞬間、少しでもホッとできることを\nひとつ見つけてみてね😊",
+
+      "小さな「よかった」は、\nちゃんと今日のしあわせだよ🌈",
+
+      "急がなくても大丈夫。\nあなたのペースで進んでるよ🌿",
+
+      "今日できたことを、\nひとつだけ思い出してみて😊",
+
+      "何もしない時間も、\n心を整える大切な時間だよ🍀",
+
+      "ちゃんとしなくても大丈夫。\n今日は今日のあなたで十分😊",
+
+      "今あるものに気づいたら、\nしあわせスイッチが少し入るかも🤭🌈",
+
+      "特別な日だから幸せになるんじゃない。\n幸せを感じた今日が、特別な日になる🤭💕",
+
+      "あなたの中には、\nもう安心に戻る力があるよ🌿",
+
+      "今日の小さな喜びを、\n少し大げさに喜んでみよう😆🌈",
+
+      "できなかったことより、\n今日も生きてる自分に拍手だよ👏😊",
+
+      "今は答えが出なくても大丈夫。\n少し心がゆるんだら、それで十分🌿",
+
+      "あなたが笑うと、\nチャッピーとサリーもうれしいよ🐶💕",
+
+      "願いは急がなくても大丈夫。\n安心して育てていこうね🌱",
+
+      "今日は、ひとつだけ\n自分にやさしくしてみよう😊",
+
+      "『あ〜しあわせぇ🍀』って\n一度だけ言ってみるのもいいね🤭",
+
+      "あなたの今日には、\nまだ気づいていない小さな幸せがあるかも🌈",
+
+      "もう十分がんばってるよ。\n少し力を抜いても大丈夫😊",
+
+      "うふふふふっ🤭\nしあわせスイッチ、入りました🌈💕"
+    ];
+
+    let lastIndex = -1;
+
+    function showMessage(){
+      const button =
+        document.getElementById("switchButton");
+
+      const messageText =
+        document.getElementById("messageText");
+
+      const placeholder =
+        document.getElementById("messagePlaceholder");
+
+      const switchOn =
+        document.getElementById("switchOn");
+
+      let randomIndex;
+
+      if(messages.length === 1){
+        randomIndex = 0;
+      }else{
+        do{
+          randomIndex =
+            Math.floor(Math.random() * messages.length);
+        }while(randomIndex === lastIndex);
+      }
+
+      lastIndex = randomIndex;
+
+      button.classList.remove("pop");
+      void button.offsetWidth;
+      button.classList.add("pop");
+
+      placeholder.style.display = "none";
+
+      messageText.classList.remove("show");
+      switchOn.classList.remove("show");
+
+      messageText.textContent =
+        messages[randomIndex];
+
+      switchOn.textContent =
+        "🌈 しあわせスイッチ 入りました🌟";
+
+      void messageText.offsetWidth;
+
+      messageText.classList.add("show");
+      switchOn.classList.add("show");
+
+      button.textContent =
+        "🌈 もう一度スイッチを押す";
+    }
+  </script>
+
+</body>
+</html>
