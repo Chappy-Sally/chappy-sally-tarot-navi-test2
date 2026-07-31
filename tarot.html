@@ -793,18 +793,9 @@ window.addEventListener(
   }
 );
 
- function goBackMenu(){
-  const params = new URLSearchParams(window.location.search);
-  const from = params.get("from");
-
-  if(from === "set"){
-    location.href =
-      "https://chappy-sally.github.io/chappy-sally-anshin-navi-set/";
-  }else{
-    location.href =
-      "https://chappy-sally.github.io/chappy-sally-tarot-navi/";
-  }
- } 
+function goBackMenu(){
+  location.href = "index.html";
+}
   
 </script>
 
