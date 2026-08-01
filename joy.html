@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    喜びを先に味わうワーク｜チャッピー＆サリー
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="joy-style.css"
+  >
+</head>
+
+<body>
+
+  <div class="main-card">
+
+    <h1>
+      🌈 喜びを先に味わうワーク
+    </h1>
+
+    <p class="intro">
+      まだ何も起きていなくても大丈夫😊<br>
+      願いが叶ったときの喜びを<br>
+      今、少しだけ先に味わってみよう🤭💕
+    </p>
+
+
+    <img
+      src="https://raw.githubusercontent.com/Chappy-Sally/chappy-sally-images/main/covers/cs_Yume.png"
+      alt="喜びを先に味わうチャッピーとサリー"
+      class="hero-image"
+    >
+
+
+    <div class="message-box">
+      チャッピーとサリーも<br>
+      まだおやつを食べていないのに<br>
+      もうニタニタしています🤣🤣<br><br>
+
+      しあわせは、起きてから感じるだけでなく<br>
+      先に味わってもいいんだよ🤭🌈
+    </div>
+
+
+    <!-- 1 -->
+    <div class="step-box">
+
+      <div class="step-title">
+        ① あなたが今までで<br>
+        「しあわせだなぁ」と感じたのはどんなとき？
+      </div>
+
+      <p class="step-text">
+        大きな出来事でなくても大丈夫😊<br>
+        おいしい、ホッとした、楽しかった、笑ったなど<br>
+        小さなしあわせでも花まるだよ🌿
+      </p>
+
+      <textarea
+        id="happyMemory"
+        placeholder="例：大好きな人や動物と、のんびり過ごしていたとき"
+      ></textarea>
+
+    </div>
+
+
+    <!-- 2 -->
+    <div class="step-box">
+
+      <div class="step-title">
+        ② 今、叶ったらうれしい願いは何かな？
+      </div>
+
+      <p class="step-text">
+        遠慮せず、思いつくまま書いてみてね😊
+      </p>
+
+      <textarea
+        id="wishText"
+        placeholder="例：安心して、自分らしく楽しく暮らしている"
+      ></textarea>
+
+    </div>
+
+
+    <!-- 3 -->
+    <div class="step-box">
+
+      <div class="step-title">
+        ③ 願いが叶ったあなたは、どこにいる？
+      </div>
+
+      <textarea
+        id="placeText"
+        placeholder="どんな場所や景色が見えるかな？"
+      ></textarea>
+
+    </div>
+
+
+    <!-- 4 -->
+    <div class="step-box">
+
+      <div class="step-title">
+        ④ 誰と一緒にいる？
+      </div>
+
+      <textarea
+        id="withText"
+        placeholder="ひとりでも、大切な人や動物と一緒でもOKだよ😊"
+      ></textarea>
+
+    </div>
+
+
+    <!-- 5 -->
+    <div class="step-box">
+
+      <div class="step-title">
+        ⑤ どんな顔をして、何と言っている？
+      </div>
+
+      <textarea
+        id="wordsText"
+        placeholder="例：笑顔で「あ〜しあわせぇ🍀〜〜💕」と言っている"
+      ></textarea>
+
+    </div>
+
+
+    <!-- 6 -->
+    <div class="step-box">
+
+      <div class="step-title">
+        ⑥ そのとき、どんな気持ち？
+      </div>
+
+      <p class="step-text">
+        複数選んで大丈夫だよ😊
+      </p>
+
+      <div class="feeling-buttons">
+
+        <button
+          type="button"
+          class="feeling-btn"
+          data-feeling="安心"
+          onclick="toggleFeeling(this)"
+        >
+          🍀 安心
+        </button>
+
+        <button
+          type="button"
+          class="feeling-btn"
+          data-feeling="しあわせ"
+          onclick="toggleFeeling(this)"
+        >
+          💕 しあわせ
+        </button>
+
+        <button
+          type="button"
+          class="feeling-btn"
+          data-feeling="ワクワク"
+          onclick="toggleFeeling(this)"
+        >
+          🌈 ワクワク
+        </button>
+
+        <button
+          type="button"
+          class="feeling-btn"
+          data-feeling="うれしい"
+          onclick="toggleFeeling(this)"
+        >
+          😊 うれしい
+        </button>
+
+        <button
+          type="button"
+          class="feeling-btn"
+          data-feeling="自由"
+          onclick="toggleFeeling(this)"
+        >
+          🪽 自由
+        </button>
+
+        <button
+          type="button"
+          class="feeling-btn"
+          data-feeling="満たされている"
+          onclick="toggleFeeling(this)"
+        >
+          ✨ 満たされている
+        </button>
+
+      </div>
+
+      <textarea
+        id="otherFeeling"
+        placeholder="ほかに浮かんだ気持ちがあれば書いてね"
+      ></textarea>
+
+    </div>
+
+
+    <!-- 喜びを味わう -->
+    <div class="taste-box">
+
+      <strong>
+        🌿 最後に、その気持ちを10秒だけ味わってみよう
+      </strong>
+
+      <p>
+        ゆっくり深呼吸して<br>
+        願いが叶ったあなたの表情や景色を<br>
+        思い浮かべてみてね😊
+      </p>
+
+      <div
+        id="timerText"
+        class="timer-text"
+      >
+        10秒
+      </div>
+
+      <button
+        id="tasteButton"
+        class="btn-taste"
+        onclick="startTaste()"
+      >
+        🌈 喜びを先に味わってみる
+      </button>
+
+    </div>
+
+
+    <div
+      id="finishBox"
+      class="finish-box hidden"
+    >
+      あ〜しあわせぇ🍀〜〜💕<br>
+      うふふふふっ🤭🌈
+    </div>
+
+
+    <div class="action-buttons">
+
+      <button
+        class="btn-copy"
+        onclick="copyForChappy()"
+      >
+        🐶 チャッピーGPTへ送る文章をコピー
+      </button>
+
+      <button
+        class="btn-clear"
+        onclick="clearAll()"
+      >
+        書いた内容を消す
+      </button>
+
+      <button
+        class="btn-back"
+        onclick="location.href='index.html'"
+      >
+        🏠 メニューにもどる
+      </button>
+
+    </div>
+
+
+    <div class="small-note">
+      このワークだけで終わっても大丈夫😊<br>
+      もっと話したくなったら<br>
+      コピーした文章をチャッピーGPTへ送ってね🐾
+    </div>
+
+
+    <div class="important-box">
+      うまく想像できなくても大丈夫です😊<br>
+      今、少しでも「うれしい」「ホッとする」と感じられたら花まる🌿<br><br>
+
+      AIからの言葉は答えや正解ではありません。<br>
+      しっくりくる言葉だけ受け取ってね😊
+    </div>
+
+  </div>
+
+
+  <script src="joy-script.js"></script>
+
+</body>
+</html>
